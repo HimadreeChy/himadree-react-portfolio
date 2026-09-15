@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { createRoot } from "react-dom/client";
 import { Github, Linkedin, Mail, ArrowUpRight, Code2, Brain, Database, Globe, GraduationCap, ExternalLink } from "lucide-react";
 import "./styles.css";
@@ -19,12 +19,12 @@ const projects = [
   {
     title: "CSE Academic Projects",
     description: "A collection of coursework and programming projects developed throughout my Computer Science and Engineering studies including graphics, networking, database, and software development projects.",
-    tags: ["C", "C++", "Java", "Python", "Computer Graphics", "Computer Networks"]
+    tags: ["C++", "C", "Java", "Python", "Computer Graphics", "Computer Networks"]
   }
 ];
 
 const skills = [
-  ["Programming", "Python, C, C++, Java, JavaScript, MySQL", Code2],
+  ["Programming", "Python, C++, C, Java, JavaScript, MySQL", Code2],
   ["AI & Machine Learning", "TensorFlow, Keras, Scikit-learn, Deep Learning", Brain],
   ["Data & Visualization", "NumPy, Pandas, Matplotlib, Data Analysis", Database],
   ["Web Development", "HTML, CSS, JavaScript, React", Globe],
@@ -32,6 +32,7 @@ const skills = [
 ];
 
 function App() {
+  const [showContact, setShowContact] = useState(false);
   return (
     <div>
       <header className="nav">
@@ -50,15 +51,11 @@ function App() {
         <section id="home" className="hero section">
           <div className="hero-copy">
             <p className="eyebrow">COMPUTER SCIENCE & ENGINEERING</p>
-            <h2>
-  <span style={{ color: "green" }}>
-    Hello, I'm Himadree.
-  </span>
-  <br />
-  <span style={{ color: "black", fontSize: "0.6em" }}>
-    Passionate About Technology & Creativity.
-  </span>
-</h2>
+            <h2 className="hero-title">
+              <span>Hello, I'm Himadree.</span>
+              <br />
+              <em>Passionate about technology & creativity.</em>
+            </h2>
             <p className="lead">CSE student passionate about artificial intelligence, deep learning, medical image analysis and building useful technology.</p>
             <div className="actions">
               <a className="primary" href="#projects">View my work <ArrowUpRight size={18}/></a>
@@ -66,16 +63,18 @@ function App() {
             </div>
           </div>
           <div className="hero-card">
-            <img
-              className="profile-placeholder"
-              src={profileImage}
-              alt="Himadree Chowdhury"
-            />
-            <div className="card-caption">
-              <span>Currently focused on</span>
-              <strong>AI • Deep Learning • Research</strong>
-            </div>
-          </div>
+
+  <img
+    className="profile-placeholder"
+    src={profileImage}
+    alt="Himadree Chowdhury"
+  />
+
+  <div className="card-caption">
+    <strong>Code • Create • Innovate</strong>
+  </div>
+
+</div>
         </section>
 
         <section id="about" className="section">
@@ -124,28 +123,66 @@ function App() {
           </div>
         </section>
 
-        <section id="education" className="section muted">
-          <div className="section-label">04 — EDUCATION</div>
-          <div className="education">
-            <GraduationCap size={34}/>
-            <div>
-              <p className="eyebrow">COMPUTER SCIENCE & ENGINEERING</p>
-              <h2>International Islamic University Chittagong</h2>
-              <p>Undergraduate studies in Computer Science and Engineering.</p>
-            </div>
-          </div>
-        </section>
+        <section id="education" className="section education-section">
+  <div className="section-label">04 — EDUCATION</div>
+
+  <div className="education">
+    <div className="education-icon">
+      <GraduationCap size={30} />
+    </div>
+
+    <div className="education-content">
+      <p className="education-year">2022 — 2026</p>
+
+      <h2>
+        B.Sc. in <span>Computer Science & Engineering</span>
+      </h2>
+
+      <h3>International Islamic University Chittagong (IIUC)</h3>
+
+      <p className="education-department">
+        Department of Computer Science & Engineering
+      </p>
+
+      <div className="education-info">
+        <div>
+          <strong>Academic Focus</strong>
+          <p>
+            Artificial Intelligence • Machine Learning • Computer Vision •
+            Medical Image Analysis
+          </p>
+        </div>
+
+        <div>
+          <strong>Relevant Coursework</strong>
+          <p>
+            Machine Learning • Neural Networks • Database Systems •
+            Software Engineering • Data Structures & Algorithms
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
         <section id="contact" className="section contact">
-          <div className="section-label">05 — CONTACT</div>
+         <div className="section-label">05 — CONTACT</div>
           <h2>Let's build something<br/><span>meaningful.</span></h2>
-          <p>I'm open to academic collaboration, projects and opportunities related to technology and AI.</p>
-          <a className="primary" href="mailto:himadreechowdhury074ss@gmail.com"><Mail size={18}/> Email me</a>
-          <div className="socials">
-            <a href="#" aria-label="GitHub"><Github/></a>
-            <a href="#" aria-label="LinkedIn"><Linkedin/></a>
-            <a href="mailto:himadreechowdhury074@gmail.com" aria-label="Email"><Mail/></a>
-          </div>
+           <p> I'm open to academic collaboration, projects and opportunities related to technology and AI. </p>
+            <button className="primary" onClick={() => setShowContact(!showContact)} >
+             <Mail size={18}/> Email me </button> {showContact && ( <div className="contact-details">
+              <p> <Mail size={17}/> <a href="mailto:himadreechowdhury074@gmail.com"> himadreechowdhury074@gmail.com </a> </p> <p> 📞 <a href="tel:+8801302993817">01302993817</a> </p> </div> )}
+               <div className="socials">
+               <a href="https://github.com/HimadreeChy"
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="GitHub"
+               >
+            <Github/>
+            </a>
+                <a href="#" aria-label="LinkedIn"><Linkedin/></a>
+                 <a href="mailto:himadreechowdhury074@gmail.com" aria-label="Email" > <Mail/> </a>
+           </div>
         </section>
       </main>
 
