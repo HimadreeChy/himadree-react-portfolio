@@ -1,5 +1,9 @@
 # Himadree Chowdhury — React Portfolio
 
+My personal portfolio website showcasing my projects and skills.
+
+Live Demo: View Portfolio
+
 ## Run locally
 
 1. Install Node.js (LTS recommended).
