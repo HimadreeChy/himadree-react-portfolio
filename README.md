@@ -2,7 +2,7 @@
 
 My personal portfolio website showcasing my projects and skills.
 
-Live Demo: View Portfolio
+Live Demo: https://himadree-react-portfolio-8vrv.vercel.app/
 
 ## Run locally
 
